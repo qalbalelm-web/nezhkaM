@@ -1,0 +1,6 @@
+{
+  "name": "مخزن منصة قلب العلم",
+  "description": "بوابة التخزين السحابي وإدارة الوسائط السحابية لمنصة قلب العلم التعليمية وتكامل Pixeldrain الآمن للمعلمين",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
