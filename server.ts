@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 import dotenv from 'dotenv';
 import { connectDB } from './src/server/config/db.js';
 import setupRoutes from './src/server/routes/setupRoutes.js';
@@ -46,7 +47,9 @@ async function startServer() {
     });
   });
 
-  const isProduction = process.env.NODE_ENV === 'production';
+  const distPath = path.resolve(__dirname, 'dist');
+  const hasDist = fs.existsSync(path.join(distPath, 'index.html'));
+  const isProduction = process.env.NODE_ENV === 'production' || hasDist;
 
   if (!isProduction) {
     // Mount Vite dev server in development
@@ -61,8 +64,7 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    // Serve static files in production
-    const distPath = path.resolve(__dirname, 'dist');
+    // Serve static files in production / built app
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
