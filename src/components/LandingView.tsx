@@ -1,6 +1,7 @@
 import React from 'react';
 import { Lock, LogIn } from 'lucide-react';
-import scienceHeartLogo from '../assets/images/science_heart_logo_1791928785795.jpg';
+import officialLogo from '../assets/images/official_logo.png';
+import { PWAInstallButton } from './PWAInstallButton.js';
 
 interface LandingViewProps {
   onOpenLogin: () => void;
@@ -13,46 +14,52 @@ export const LandingView: React.FC<LandingViewProps> = ({ onOpenLogin }) => {
       <header className="border-b border-slate-900 bg-slate-950/80 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img
-            src={scienceHeartLogo}
-            alt="شعار منصة قلب العلم"
-            className="w-9 h-9 rounded-lg object-cover ring-1 ring-emerald-500/30"
+            src={officialLogo}
+            alt="شعار مخزن منصة قلب العلم"
+            className="w-10 h-10 rounded-full object-cover ring-2 ring-emerald-500/40 shadow-lg shadow-emerald-950/50"
           />
           <span className="text-sm font-bold text-slate-100 tracking-tight">
             مخزن منصة قلب العلم
           </span>
         </div>
 
-        <button
-          type="button"
-          onClick={onOpenLogin}
-          className="px-4 py-2 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg transition-colors shadow-sm flex items-center gap-1.5"
-        >
-          <LogIn className="w-3.5 h-3.5" />
-          <span>تسجيل الدخول</span>
-        </button>
+        <div className="flex items-center gap-3">
+          <PWAInstallButton variant="header" />
+          <button
+            type="button"
+            onClick={onOpenLogin}
+            className="px-4 py-2 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg transition-colors shadow-sm flex items-center gap-1.5"
+          >
+            <LogIn className="w-3.5 h-3.5" />
+            <span>تسجيل الدخول</span>
+          </button>
+        </div>
       </header>
 
       {/* Centered Welcoming Card */}
       <main className="flex-1 flex items-center justify-center p-6">
-        <div className="max-w-lg w-full text-center space-y-8 bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 sm:p-12 shadow-2xl backdrop-blur-sm">
+        <div className="max-w-lg w-full text-center space-y-7 bg-slate-900/60 border border-slate-800/80 rounded-2xl p-8 sm:p-12 shadow-2xl backdrop-blur-sm">
           {/* Logo & Platform Name */}
           <div className="space-y-4">
             <img
-              src={scienceHeartLogo}
-              alt="منصة قلب العلم"
-              className="w-20 h-20 rounded-2xl mx-auto shadow-2xl ring-2 ring-emerald-500/40"
+              src={officialLogo}
+              alt="شعار مخزن قلب العلم"
+              className="w-28 h-28 rounded-full mx-auto shadow-2xl ring-4 ring-emerald-500/30 object-cover"
             />
             <div className="space-y-2">
               <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-100 tracking-tight">
                 مخزن منصة قلب العلم
               </h1>
-              <p className="text-sm text-slate-400 leading-relaxed max-w-sm mx-auto">
-                مرحباً بك في البوابة السحابية المخصصة لتخزين وإدارة الوسائط والفيديوهات التعليمية.
+              <p className="text-xs text-slate-400 font-medium">
+                منصة تعليمية حديثة
+              </p>
+              <p className="text-sm text-slate-300 leading-relaxed max-w-sm mx-auto pt-1">
+                البوابة السحابية المخصصة لتخزين وإدارة الوسائط والفيديوهات التعليمية للمعلمين.
               </p>
             </div>
           </div>
 
-          {/* Login Action Button */}
+          {/* Action Buttons: Login + Install App */}
           <div className="pt-2 max-w-xs mx-auto space-y-3">
             <button
               type="button"
@@ -62,7 +69,11 @@ export const LandingView: React.FC<LandingViewProps> = ({ onOpenLogin }) => {
               <Lock className="w-4 h-4" />
               <span>تسجيل الدخول إلى حسابك</span>
             </button>
-            <span className="text-[11px] text-slate-500 block">
+
+            {/* In-App Install Button */}
+            <PWAInstallButton variant="prominent" />
+
+            <span className="text-[11px] text-slate-500 block pt-1">
               بوابة خاصة ومحمية للمعلمين وإدارة المنصة
             </span>
           </div>

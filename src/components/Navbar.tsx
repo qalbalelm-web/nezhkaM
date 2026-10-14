@@ -1,7 +1,8 @@
 import React from 'react';
 import { AuthUser } from '../types/index.js';
 import { LogOut, ShieldCheck, UserCheck } from 'lucide-react';
-import scienceHeartLogo from '../assets/images/science_heart_logo_1791928785795.jpg';
+import officialLogo from '../assets/images/official_logo.png';
+import { PWAInstallButton } from './PWAInstallButton.js';
 
 interface NavbarProps {
   user: AuthUser | null;
@@ -22,16 +23,16 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Zone 1: Brand Wordmark */}
         <div className="flex items-center gap-3 shrink-0">
           <img
-            src={scienceHeartLogo}
+            src={officialLogo}
             alt="شعار منصة قلب العلم"
-            className="w-10 h-10 rounded-lg object-cover ring-1 ring-emerald-500/30"
+            className="w-10 h-10 rounded-full object-cover ring-2 ring-emerald-500/40 shadow-md"
           />
           <div className="flex flex-col">
             <span className="text-base font-bold text-slate-100 whitespace-nowrap tracking-tight">
               مخزن منصة قلب العلم
             </span>
             <span className="text-[11px] text-slate-400 whitespace-nowrap">
-              بوابة التخزين وإدارة وسائط Pixeldrain
+              منصة تعليمية حديثة · إدارة الوسائط السحابية
             </span>
           </div>
         </div>
@@ -96,6 +97,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Zone 3: 1 Primary Action / User Profile */}
         <div className="flex items-center gap-4 shrink-0">
+          <PWAInstallButton variant="header" />
           {user ? (
             <div className="flex items-center gap-3">
               <div className="hidden sm:flex flex-col text-left">

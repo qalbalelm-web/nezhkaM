@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { api } from '../lib/api.js';
 import { AuthUser } from '../types/index.js';
 import { Lock, User, ArrowLeft } from 'lucide-react';
-import scienceHeartLogo from '../assets/images/science_heart_logo_1791928785795.jpg';
+import officialLogo from '../assets/images/official_logo.png';
 
 interface LoginViewProps {
   onLoginSuccess: (user: AuthUser) => void;
@@ -44,15 +44,15 @@ export const LoginView: React.FC<LoginViewProps> = ({
         {/* Header */}
         <div className="text-center space-y-2">
           <img
-            src={scienceHeartLogo}
-            alt="منصة قلب العلم"
-            className="w-16 h-16 rounded-2xl mx-auto shadow-xl ring-2 ring-emerald-500/30"
+            src={officialLogo}
+            alt="شعار مخزن منصة قلب العلم"
+            className="w-20 h-20 rounded-full mx-auto shadow-2xl ring-2 ring-emerald-500/40 object-cover"
           />
           <h1 className="text-xl font-bold text-slate-100 tracking-tight">
             مخزن منصة قلب العلم
           </h1>
           <p className="text-xs text-slate-400">
-            تسجيل الدخول إلى بوابتك السحابية
+            منصة تعليمية حديثة · تسجيل الدخول إلى بوابتك
           </p>
         </div>
 
