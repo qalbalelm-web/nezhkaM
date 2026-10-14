@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/psychic-meme/sw.js', { scope: '/psychic-meme/' })})}
